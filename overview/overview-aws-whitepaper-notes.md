@@ -40,3 +40,11 @@ Deployment of resources on-premises, using virtualization and resource managemen
 ### Hybrid
 
 Is a way to connect on-premise infrastructure with cloud-based resources. THe most common method exists as a way to extend resources from an existing IT on-premise infrastructure.
+
+## Global infrastructure
+
+AWS Cloud infrastructured is built around AWS regions and Availability Zones.
+
+Availability Zones are areas with one or more discrete data centers −each with redundant power, networking and connectivity− housed in separate facilities.
+
+They offer the ability to operate production applications and databases highly available, more fault tolerant and scalable than if hosted in a single data center.
