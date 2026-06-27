@@ -84,3 +84,30 @@ This is a partial list of the assurance programs which AWS complies:
 
 AWS provides customer with a wide range of information on its IT control environment in whitepapers, reports, certifications, accreditations and other documents.
 
+## AWS services by category
+
+This is an overview of the main categories of AWS services:
+
+- Analytics
+- Application integration
+- Blockchain
+- Business applications
+- Cloud Financial Management
+- Compute
+- Customer enablement
+- Containers
+- Databases
+- Developer tools
+- End user computing
+- Frontend web and mobile
+- Game tech
+- Internet of Things (IoT)
+- Machine Learning (ML) and Artificial Intelligence (AI)
+- Management and governance
+- Media
+- Migration and transfer
+- Networking and content delivery
+- Quantum technologies
+- Satellite
+- Security, identity and compliance.
+- Storage
