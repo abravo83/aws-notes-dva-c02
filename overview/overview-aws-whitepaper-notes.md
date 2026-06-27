@@ -24,3 +24,19 @@ One key advantage of cloud computing is shifting high capital expenses for estim
 - __End of expenses in maintenance and running of data centers__ while focusing on projects that differenciate the bussiness.
 
 - __Global availability in minutes__. The cloud network offers low latency across the globe.
+
+## Types of cloud computing
+
+Depending on the type of __deployment model__ we can identify three main types:
+
+### Cloud
+
+Fully deployed in the cloud. All parts of the application run in the cloud. These applications have been either created in the cloud or have been migrated from an existing infrastructure.
+
+### Private cloud (on-premises)
+
+Deployment of resources on-premises, using virtualization and resource management tools. Lacks many of the benefits of cloud computing, but it is sometimes preffered for being able to provide dedicated resources. Similar to using legacy IT infrastructure, but with application management a virtualization technologies to be able to rebalance resource usage.
+
+### Hybrid
+
+Is a way to connect on-premise infrastructure with cloud-based resources. THe most common method exists as a way to extend resources from an existing IT on-premise infrastructure.
