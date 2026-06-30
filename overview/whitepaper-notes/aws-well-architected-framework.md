@@ -32,4 +32,8 @@ Focuses on avoiding unnecessary costs. Key topics include understanding spending
 
 ### Sustainability Pillar
 
-Focuses on minimizing the environment impacts of running clouds workloads. Key topics include a shared responsibility model for sustainability, understanding impact and maximizing utilization to minimize required resources,
+Focuses on minimizing the environment impacts of running clouds workloads. Key topics include a shared responsibility model for sustainability, understanding impact and maximizing utilization to minimize required resources.
+
+## AWS Well-Architected Lenses
+
+Are extended guidance focused on industry specific and technology domains themes. The range from marchine learning, data analytics, serverless, high performance computing, IoT, SAP, streaming media, games industry, hybrid networking and financial services.
