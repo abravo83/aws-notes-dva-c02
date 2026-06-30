@@ -21,3 +21,15 @@ Focuses on protecting information and systems. Key topics include confidentialit
 ### Reliability Pillar
 
 Focuses on workloads performing their intended functions and how to recover quickly from failure to meet demands. Key topics include distributed system design, recovery planning, and adapting to changing requirements.
+
+### Performance Efficiency Pillar
+
+Focuses on structured and streamlined allocation of IT and coputing resources. Key topics include selecting resource types and sizes optimized for the workload requirements, monitoring performance, and mantaining efficiency.
+
+### Cost Optimization Pillar
+
+Focuses on avoiding unnecessary costs. Key topics include understanding spending over time and controlling fund allocation, selecting resources of the right type and quantity, and scaling to meet business needs without overspending.
+
+### Sustainability Pillar
+
+Focuses on minimizing the environment impacts of running clouds workloads. Key topics include a shared responsibility model for sustainability, understanding impact and maximizing utilization to minimize required resources,
