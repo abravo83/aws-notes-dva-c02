@@ -62,3 +62,27 @@ CD helps you discover and address bugs early in the delivery process before they
 ### Deliver updates fast
 
 When CI/CD is implemented, the velocity of the entire team, including the release of features and bug fixes, is increased. Entreprises can respond fasted to market changes, security challenges, customer needs and cost pressures. What use to take weeks and months can now be done in days or hours.
+
+## Implementing continuous integration and continuous delivery
+
+This section discusses the ways in which you can begin to implement a CI/CD model. It is not how a mature DevOps builds and uses a CI/CD pipeline.
+
+### A pathway to CI/CD 
+
+CI/CD can be pictured as a workflow or pipeline where new code is submitted to one end, tested over a series of stages (source, build, staging, production), and then pusblished as production-ready code. If your organization is new to CI/CD it can approach this pipeline in an iterative fashion, starting small, and iterating at each stage so that you can understand and develop your code in a way that will help your organization grow.
+
+Each step of the CI/CD pipeline is a logical unit in the delivery process. Each step also acts as a gate that vets a certain aspect of the code. As the code progresses through the pipeline, the assumption is that the quality of the code is higher in the latter stages because more aspects of it had been verified. Problems uncovered in an early stage stop the code from progressing through. Results from the test are immediately sent to the team, and all further builds and releases are stopped.
+
+The stages presented are sugestions. You can adapt them based on your business needs. Some stages can be repeated for multiple types of testing, security and performance.
+
+The presence of a CI/CD pipeline will have a large impact on maturing the capabilities of your organization. The organization should start with small steps and not try to build a fully mature pipeline.
+
+Building a CI/CD-enabled organization is a journey, and there are many destinations along the way. On the next section we will discuss a possible pathway to begin the journey.
+
+#### CI - Source and build
+
+The first phase is to develop maturity in CI. You should make sure that all developers regularly commit ther conde to a central repository and merge all changes to a release branch for the application. No developer should ne holding code in isolation. If a feature branch is needed for a certain period of time, it should be kept up to date bi merging from the upstream as often as possible. Frequent commits and merge with complete units of work are recommended for the team to develop discipline and are encouraged by the process.
+
+You should encourage developers to create unit tests as early as possible for their applications, and to run these tests before pushing the code to the central repository. Errors caught early in the software development process are the cheapest and easiest to fix.
+
+When the code is pushed to a branch in a source code repository, a workflow engine monitoring that branch will send a command to a builder tool to build the code and run the unit tests in a controlled environment. Oher quality checks, like unit test coverage, style check, and static analysis can happen at this stage. Finally, the builder tool creates one or more binary builds and other artifacts, images, stylesheets and documentes for the application.
