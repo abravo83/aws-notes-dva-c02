@@ -86,3 +86,27 @@ The first phase is to develop maturity in CI. You should make sure that all deve
 You should encourage developers to create unit tests as early as possible for their applications, and to run these tests before pushing the code to the central repository. Errors caught early in the software development process are the cheapest and easiest to fix.
 
 When the code is pushed to a branch in a source code repository, a workflow engine monitoring that branch will send a command to a builder tool to build the code and run the unit tests in a controlled environment. Oher quality checks, like unit test coverage, style check, and static analysis can happen at this stage. Finally, the builder tool creates one or more binary builds and other artifacts, images, stylesheets and documentes for the application.
+
+ #### CD - Creating a staging environment
+
+ Continuous delivery is the next phase, and entails deploying the application in a staging environment, which is a replica of the production stack, and running more functional tests. The staging environment could be a static environment premade for testing, or you could provision and configure a dynamic environment with commited infrastructure and configuration code for testing and deploying the application code.
+
+ #### CD - Creating a production environment
+
+ In the deployment/delivery pipeline sequencem after the staging environment, is the production environment, which is also built using infrastructure as code (IaC)
+
+ #### Continuous deployment
+
+ The final phase in the CI/CD pipeline is continuous deployment. This might include full automation of the entire software release process including deployment to the production environment. In a fully mature CI/CD environment, the path to the production environment is fully automated, which allows code to be deployed with high confidence.
+
+ #### Maturity and beyond
+
+ As your organization matures, it will continue to develop the CI/CD model to include the following improvements:
+
+ - More staging environments for specific performance, compliances, security, and UI tests.
+ - Unit test infrastructure and configuration code along with the application code.
+ - Integration with other systems and processes such as code reviews, issue tracking and event notification.
+ - Integration with database schema migration
+ - Additional steps for auditing and business approval.
+
+ Even the most mature organizations that have complex multi-environment CI/CD pipelines continue to look for improvements. DevOps is a journey, not a destination. Feedback is collected for continuous improvement. Having a single place to collaborate accross the teams, like, for example, Amazon CodeAnalyst, allows the teams to have visibility to build and deliver software products with confidence.
