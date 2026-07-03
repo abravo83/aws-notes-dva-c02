@@ -42,3 +42,23 @@ Before we deploy a change in production we can implement a decision process to e
 When using continuous delivery, the decision to go live becomes a bussines decision, not a technical one. The technical validation happends on every commit.
 
 Rolling out a change to production is not a disruptive event. It does not require the team to stop working on the next set of changes, and it doesn't neead a project plan, maintenance window or a handover documentation. It becomes a repeatable process that has been carried out and proven multiple times in testing environment.
+
+## Benefits of continuous delivery
+
+CD gives out numerous benefits to the software development team, including automating the process, improving developer productivity, improving code quality, and fast delivery to the users.
+
+### Automation of the software process
+
+CD provides methods for the team to check in code code that is automatically built, tested and prepared for release to production so that your software delivery is efficient, resilient, rapid and secure.
+
+### Improvement of developer productivity
+
+CD practives will help your team's productivity by freeing developers from manual tasks, untangling complex dependencies, and returning focus on delivering new features in software. Instead of integrating their code with other parts of the bussiness, they can focus on coding.
+
+### Improve code quality
+
+CD helps you discover and address bugs early in the delivery process before they grow into large problems later. Your team can easily perform additional types of code test, because the entire process has been automated. With the discipline of more testing more frequently, teams can achieve high quality code with a high assurance of stability and security, Developers will know through immediate feedback whether the new code works and if any breaking changes or bugs are have been introduced.
+
+### Deliver updates fast
+
+When CI/CD is implemented, the velocity of the entire team, including the release of features and bug fixes, is increased. Entreprises can respond fasted to market changes, security challenges, customer needs and cost pressures. What use to take weeks and months can now be done in days or hours.
