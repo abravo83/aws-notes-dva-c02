@@ -110,3 +110,15 @@ When the code is pushed to a branch in a source code repository, a workflow engi
  - Additional steps for auditing and business approval.
 
  Even the most mature organizations that have complex multi-environment CI/CD pipelines continue to look for improvements. DevOps is a journey, not a destination. Feedback is collected for continuous improvement. Having a single place to collaborate accross the teams, like, for example, Amazon CodeAnalyst, allows the teams to have visibility to build and deliver software products with confidence.
+
+ ### Teams
+
+ AWS recommends three different developer teams for implementing CI/CD: Application team, infrastructure team, and a tools team. This division has been used in fast-moving startups, large enterprise organizations, and Amazon itself.
+
+ #### Application Team
+
+ In charge of creating the application. They own the backlog, stories and unit tests, and they develope features based on a specified application target. This team's goal is to minimize the time these developers spend on non-core aplication tasks. Amazon CodeCatalyst allows the application team to maintain and manage issue tracking within the tool for collaboration.
+
+ The application team should also have platform skills and undestanding of system configuration. This will enable the to focus on developing features and hardening the application
+
+ ### Infrastructure team
