@@ -122,3 +122,31 @@ When the code is pushed to a branch in a source code repository, a workflow engi
  The application team should also have platform skills and undestanding of system configuration. This will enable the to focus on developing features and hardening the application
 
  ### Infrastructure team
+
+ They write the code that both creates and configures the infrastructure needed to run the application. They are responsible for specifying what resources are needed, and work closely with the application team.
+
+ This team should have skills in infrastructure provisioning methods, like AWS CDK, AWS CloudFormation or HashiCorp Terraform. The team may also need to develop configuration atomation skills with tools like Ansible and Puppet.
+
+ ### Tools team
+
+ They build and manage the CI/CD pipeline. They are responsible for the infrastructure and tools that make up the pipeline. This tools are both used by the application and the infrastructure team. The organization needs to continuously mature its tools team, so that the stay one step ahead of the maturing application and infrastructure teams.
+
+ The team must be skilled in building and integrating all parts of the CI/CD pipeline. This includes building source control repositories, workflow engines, build environments, testing frameworks, and artifact repositories. The team may choose to implement tools such as Amazon CodeCatalyst, AWS CodePipeline as well as Jenkins, GitHub or other similar tools.
+
+ Some organizations call this a DevOps team, but Amazon discourage this, thinking about DevOps as the sum of people, processes, and tools in software delivery.
+
+ ## Testing stages in continuous integration and continuous delivery
+
+ The three CI/CD teams should incorporate testing into the software development lifecycle at the different stages of the CI/CD pipeline. Overall, testing should start as early as possible.
+
+ Mike Cohn introduced the following _Testing Piramid_ concept in _Succeding with Agile_.
+
+ | Base  | Subbase                       | Middle                 | Peak |
+ | ----- | ----------------------------- | ---------------------- | ---- |
+ | Unit  | Service/Integration/Component | Performance/Compliance | UI   |
+ | Fast  | ----------------------------- | ---------------------- | Slow |
+ | Cheap | ----------------------------- | ---------------------- | Exp. |
+
+ Unit tests are on the bottom of the pyramid. The are both the fastest to run and the least expensive. They should make up the bulk of your testing strategy. Around 70%. Unit tests should have near-complete code coverage, because bugs caught in this phase can be fixed quickly and cheaply.
+
+ Service, component and integration test are above unit test on the pyramid. They require detailed environments, and therefore, are more costly in infrastructure requirements and slower to run. Performance and compliance tests are the next level. They require production-quality environments and are more expensive yet. UI and user acceptance tests are at the top of the pyramid, and require production-quality environments as well.
