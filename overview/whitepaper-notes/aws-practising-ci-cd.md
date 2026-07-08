@@ -150,3 +150,7 @@ When the code is pushed to a branch in a source code repository, a workflow engi
  Unit tests are on the bottom of the pyramid. The are both the fastest to run and the least expensive. They should make up the bulk of your testing strategy. Around 70%. Unit tests should have near-complete code coverage, because bugs caught in this phase can be fixed quickly and cheaply.
 
  Service, component and integration test are above unit test on the pyramid. They require detailed environments, and therefore, are more costly in infrastructure requirements and slower to run. Performance and compliance tests are the next level. They require production-quality environments and are more expensive yet. UI and user acceptance tests are at the top of the pyramid, and require production-quality environments as well.
+
+ All these tests are part of a complete strategy, to assure high quality software, but for speed in development, a focus on the bottom half of the pyramid is convenient.
+
+## CI/CD implementation stages
