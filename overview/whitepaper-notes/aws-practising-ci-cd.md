@@ -186,3 +186,21 @@ __Secrets Detection__: This check is used to identify secrets such as usernames,
 __Software Composition Analisys (SCA)__: SCA tools enable users to manage and analyze the open-source components in their applications. They verify the licensing and asses security vulnerabilities. SCA tools can launch workflows to fix these vulnerabilities. Any finding that exceeds the defined threshold will fail the build and stop the progress on the pipeline.
 
 __Software Bill of Materials(SBOM)__: A reporting mechanism to detail all the components and dependencies involved in the development and delivery of an application. It allows the visibility of the product's components, assures file integrity, leverages licensing governance, and provides a robust vulnerability scanning.
+
+### Staging
+
+In the staging phase, full environments are created that mirror the eventual production environment. The following tests are performed:
+
+__Integration testing__: Verifies the interfaces between components against software design. Integration testing is an iterative process and facilitates building robusts interfaces and system integrity.
+
+__Component testing__: Tests message passing between various components and their outcomes. A key goal of this testing could be idempotency in component testing. Tests can include extremely large data volumnes, or edge situations and abnormal inputs.
+
+__System testing__: Tests the system end-to-end and verifies if the software satisfies the business requirement. This might include testing the user interface (UI), API, backend logic, and end state.
+
+__Performance testing__: Determines the responsiveness and stability of a system as it performs under a particular workload. Performance testing is also used to investigate, measure, validate, or verify other quality attributes of the system, such as scalability, reliability, and resource usage. Types of performance tests might include load tests, stress tests, and spike tests. Performances tests are used for benchmarking against predefined criteria.
+
+__Compliance testing__: Checks wheter the code change complies with the requirements of a nonfunctional specification and/or regulations. It determines if you are implementing and meeting the defined standards.
+
+__User acceptance testing__: Validates e2e business flow. This testing is performed by an end user in a staging environment and confirms wheter the system meets the requirements of the requirement specification. Typically, customers employ alpha and beta testing (A/B testing) methodologies at this stage.
+
+__Dynamic Application Security Testing (DAST)__: This type of testing is used to check for security problems in an applications while it is running. DAST tools evaluate the application by attacking like a malicious user would from the outside.
