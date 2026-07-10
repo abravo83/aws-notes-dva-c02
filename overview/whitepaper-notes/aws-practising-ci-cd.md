@@ -183,4 +183,6 @@ __Static Application Security Testing (SAST)__: This is a test used to analyze c
 
 __Secrets Detection__: This check is used to identify secrets such as usernames, passwords and access keys in code. As soon as secrets are discovered, the build fails immediately.
 
-__Software Composition Analisys (SCA)__: SCA tools enable users to manage and analyze the open-source components in their applications. They verify the licensing and asses security vulnerabilities. SCA tools can launch workflows to fix these vulnerabilities. Any finding that exceeds the defined threshold will fail the build and stop the progress on the pipeline. 
+__Software Composition Analisys (SCA)__: SCA tools enable users to manage and analyze the open-source components in their applications. They verify the licensing and asses security vulnerabilities. SCA tools can launch workflows to fix these vulnerabilities. Any finding that exceeds the defined threshold will fail the build and stop the progress on the pipeline.
+
+__Software Bill of Materials(SBOM)__: A reporting mechanism to detail all the components and dependencies involved in the development and delivery of an application. It allows the visibility of the product's components, assures file integrity, leverages licensing governance, and provides a robust vulnerability scanning.
