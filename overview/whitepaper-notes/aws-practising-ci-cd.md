@@ -154,3 +154,33 @@ When the code is pushed to a branch in a source code repository, a workflow engi
  All these tests are part of a complete strategy, to assure high quality software, but for speed in development, a focus on the bottom half of the pyramid is convenient.
 
 ## CI/CD implementation stages
+
+### Setting up the source
+
+At the beginning of the project is essential to set up a source where you can store the raw code and configuration schema changes. You can choose a code repository like GitHub, Amazon CodeCatalyst, or AWS CodeCommit.
+
+### Setting up and running build tools
+
+The build automation process is essential to CI. The first task of the build process would be to choose the correct tool for the build. Most of the right tools are:
+
+- Ant, Maven, and Gradle for Java and Kotlin
+- esbuild, Rollup, Webpack, and Vite for JavaScript and TypeScript.
+- Cargo for Rust
+- Go Build for Go
+- Rake for Ruby
+
+The best choice depends on the programming language of your project and the skill set of the team. After the build tool is chosen, all dependencies need to be clearly defined in the build scripts, along with the build steps. It's also best practice to version the final build artifacts, to make easier the deploy and keeping track of issues.
+
+### Building
+
+During the build stage, the build tools will take any change to the source code repository as input, build the software, and run the following types of tests:
+
+__Unit Testing__: Tests a specific section of code to ensure the code does what it is expected to do. The unit testing is performed by the software developers during the development phase. At this stage, static code analysys, data flow analysis, code coverage, and other software verification processes could be applied.
+
+__Static Code Analysis__: This test is executed without actually running the application, after the build and unit tests phase. This can help to find coding errors and security holes, and also can ensure conformance to coding guidelines.
+
+__Static Application Security Testing (SAST)__: This is a test used to analyze code against security violations such as XML External Entity Processing, SQL Injection, and Cross Site Scripting. As soon as violations are detected, the build will fail and any progress will be blocked in the pipeline.
+
+__Secrets Detection__: This check is used to identify secrets such as usernames, passwords and access keys in code. As soon as secrets are discovered, the build fails immediately.
+
+__Software Composition Analisys (SCA)__: SCA tools enable users to manage and analyze the open-source components in their applications. They verify the licensing and asses security vulnerabilities. SCA tools can launch workflows to fix these vulnerabilities. Any finding that exceeds the defined threshold will fail the build and stop the progress on the pipeline. 
