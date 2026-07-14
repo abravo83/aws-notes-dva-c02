@@ -204,3 +204,21 @@ __Compliance testing__: Checks wheter the code change complies with the requirem
 __User acceptance testing__: Validates e2e business flow. This testing is performed by an end user in a staging environment and confirms wheter the system meets the requirements of the requirement specification. Typically, customers employ alpha and beta testing (A/B testing) methodologies at this stage.
 
 __Dynamic Application Security Testing (DAST)__: This type of testing is used to check for security problems in an applications while it is running. DAST tools evaluate the application by attacking like a malicious user would from the outside.
+
+### Production
+
+After passing the other tests, the staging phase is repeated in a production environment. In this phase, there is still a final Canary test by deploying the new code only on a small subset of servers or just in one, maybe on a specific AWS Region, before deploying the code to the entire production environment.
+
+## Building the pipeline
+
+This section discusses how to build the pipeline. It starts by establishing a pipeline with the minimum components needed for CI and then transition it later to a CD pipeline wit more components and stages. This section also discusses how you can consider using AWS Lambda functions and manual approvals for large projects, plan for multiple teams, branches and AWS Regions.
+
+### Starting with a minimum viable pipeline for CI
+
+The journey towards CD begins with a minimum viable pipeline (MVP). Teams can start with a very simple process, such as implementing a pipeline that performs a code style check, or a single unit test without deployment.
+
+A key componente to help you build this pipeline is a `delivery orchestration tool`. **Amazon CodeCatalyst workflows** are CI/CD pipelines that enable you to easily build, test, and deploy applications. CodeCatalyst Workflows help you relaibly deliver high-quality applications updates frequently, quickly and securely. CodeCatalyst uses a visual editor or YAML to quickly assemble and configure actions to compose workflows that automate your CI/CD pipeline, test reporting and other manual processes. You can get started with a new project from scratch or by using a blueprint from a library of blueprints. If you use a blueprint, a default workflow will be created from the main branch of your repository, that you can then customize. To create a new workflow, once you launch a new project in Amazon CodeCatalyst, navigate to CI/CD > Workflows and create a new workflow.
+
+CodeCatalyst supports many purpose build actions developed by AWS, as well as third parties such as GitHub Actions. To deploy an application or resoruce through CodeCatalyst, you can specify a deploy action inside the workflow. A _deploy action_ is a workflow building block that defines what you want to deploy, where you want to deploy it, and how you want to deploy it. Using deploy actions within a workflow, allows for the traceability, automatic rollbacks, and monitoring of your deployment as it progresses through the various stages  of your workflow and deployment.
+
+AWS CodeCatalyst is a CI/CD service that can be used through the AWS Management Console for fast and reliable application and infrastructure updates. AWS CodePipeline builds, tests, and deploys your code every time the is a code change, based on the release process models you define. This enables you to rapidly and reliably deliver features and updates. Your can easily build out an end-to-end solution by sugin our pre-built plugins for popular third-parties services like GitHub, or by integrationg your own custom plugins into any stage of your release process. With AWS CodePipeline, you only pay for what you use. There are not upfront fees or long-term commitments.
