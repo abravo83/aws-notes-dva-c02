@@ -222,3 +222,27 @@ A key componente to help you build this pipeline is a `delivery orchestration to
 CodeCatalyst supports many purpose build actions developed by AWS, as well as third parties such as GitHub Actions. To deploy an application or resoruce through CodeCatalyst, you can specify a deploy action inside the workflow. A _deploy action_ is a workflow building block that defines what you want to deploy, where you want to deploy it, and how you want to deploy it. Using deploy actions within a workflow, allows for the traceability, automatic rollbacks, and monitoring of your deployment as it progresses through the various stages  of your workflow and deployment.
 
 AWS CodeCatalyst is a CI/CD service that can be used through the AWS Management Console for fast and reliable application and infrastructure updates. AWS CodePipeline builds, tests, and deploys your code every time the is a code change, based on the release process models you define. This enables you to rapidly and reliably deliver features and updates. Your can easily build out an end-to-end solution by sugin our pre-built plugins for popular third-parties services like GitHub, or by integrationg your own custom plugins into any stage of your release process. With AWS CodePipeline, you only pay for what you use. There are not upfront fees or long-term commitments.
+
+The steps of AWS CodePipeline map directly to the source, build, staging, and production CI/CD stages. While CD is desirable, a simple two-steps pipeline that checks the source repository and performs a build action is near and useful goal.
+
+For AWS CodePipeline, the source stage can accept inputs from GitHub, AWS CodeCommit, Atalassian Bitbucket, and Amazon Simple Storage Service (Amazon S3). Automating the build process is a critical first step for implementing CD and moving towards continuous deployment. Eliminating human involvement removes the burden from your team, minimizes errors introduces by manual packaging and allows you to start packaging consumable artifacts more often.
+
+AWS CodePipeline works seamlessly with **AWS CodeBuild**, a `fully managed build service`, to make it easier to set up a build step within your pipeline that packages your code and runs unit tests. With AWS CodeBuild there is no need to provision, manage, or scale your own build servers. AWS CodeBuild scales continuously and processes multiple builds concurrently so your builds are not left waiting in a queue. AWS CodePipeline alos integrates with build servers like Jenkins, Solano CI, and TeamCity.
+
+Once this stages are implemented, developer will get used to regularly pay attention to build and test results. They need to grow and maintain a healthy unit test base. This, in turn, bolsters the entire team's confidence in the CI/CD pipeline and furthers its adoption.
+
+### Continuous delivery pipeline
+
+Afte a CI pipeline has been implemented and supporting processes have been established, you teams can start trasitioning toward the continuous delivery pipeline. This transition requires teams to automate both building and deploying applications.
+
+A continuous delivery pipeline is characterized by the presence of staging and production steps, where the production step is performed after a manual approval.
+
+Teams can gradually start building a continuous delivery pipeline by writing their own deployment scripts.
+
+Depending on the needs of an application, some of the deployment steps can be abstracted  by existing AWS services. For example, AWS CodePipeline directly integrates with **AWS CodeDeploy**, a service that automates code deployments to Amazon EC2 instances and instances running on premises.
+
+AWS has detailed documentation on how to implement and integrate **AWS CodeDeploy** with your infrastructure and pipeline. If you are using Amazon CodeCatalyst, you should refer to the [documentation](https://docs.aws.amazon.com/codecatalyst/latest/userguide/deploy.html) for deploying using workflows.
+
+You can add a deploy action (Like deploying to ECS) to your workflow that defines what you want to deploy, where you want to deploy it, and how you want to deploy it.
+
+After your team successfully automates the deployment of the application, deployment stages can be expanded with various tests. For example you can add other out-of-the-box integrations, with services like Ghost Inspector, Runscope, and others.
