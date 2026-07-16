@@ -273,4 +273,14 @@ A **stack** is an AWS CloudFormation concept and represents a group of related A
 
 ### CI/CD for serverless applications
 
-Amazon CodeCatalysts makes buiding CI/CD pipelines or workflows easy for serverless applications. You can use one of the serverless blueprints from the library
+Amazon CodeCatalysts makes buiding CI/CD pipelines or workflows easy for serverless applications. You can use one of the serverless blueprints from the library of blueprints to kickstart a project within minutes.
+
+You can use AWS CodePipeline, CodeBuild, and CloudFormation to build CI/CD pipeline for serverless applications. Serverless applications integrate managed services such as **Amazon Cognito**, **S3**, and **Dynamo DB** with event driven service, and AWS Lambda to deploy applications in a manner which doesn't require managing servers.
+
+If you are a serverless application developer, you can use the combination of AWS CodePipeline, CodeBuild and CloudFormation to automate the building, testing, and deployment of serverless applications that are expressed in templates built with the AWS Serverles Applications model: [Rolling deployments for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-rolling-deployments.html)
+
+You can also create secure CI/CD pipelines that follow your organization´s best practises with [CDK Pipelines](https://docs.aws.amazon.com/cdk/v2/guide/cdk_pipeline.html) or AWS Serverless Application Model Pipelines ([SAM Pipelines](https://aws.amazon.com/blogs/compute/introducing-aws-sam-pipelines-automatically-generate-deployment-pipelines-for-serverless-applications/))
+
+SAM Pipelines are a new feature of AWS SAM CLI that give you access to the benefits of CI/CD in minutes. They give you access to a set of default pipeline templates for AWS CodeBuild/CodePipeline that follow AWS deployment best practises.
+
+### Pipelines for multiple teams, branches and AWS Regions
