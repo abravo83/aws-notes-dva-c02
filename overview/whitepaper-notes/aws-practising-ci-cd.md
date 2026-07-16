@@ -246,3 +246,14 @@ AWS has detailed documentation on how to implement and integrate **AWS CodeDeplo
 You can add a deploy action (Like deploying to ECS) to your workflow that defines what you want to deploy, where you want to deploy it, and how you want to deploy it.
 
 After your team successfully automates the deployment of the application, deployment stages can be expanded with various tests. For example you can add other out-of-the-box integrations, with services like Ghost Inspector, Runscope, and others.
+
+### Adding Lambda actions
+
+AWS CodePipeline supports integration with AWS Lambda. This enables implementing a broad set of tasks, such as creating custom resources in your environment, integrating third-party systems (like Slack), and performing checks on your newly deployed environment.
+
+Lambda functions can be used in a CI/CD pipeline to do many tasks based on your needs. These are some examples:
+
+- Roll out changes to your environment by applying or updating an AWS CloudFormation template.
+- Create resources on demand in one stage of a pipeline using AWS CloudFormation and delete them in another stage.
+- Deploy to Amazon Elastic Container (ECS) Docker Instances.
+- Back up resources before building or deploying by creating an AMI snapshot.
