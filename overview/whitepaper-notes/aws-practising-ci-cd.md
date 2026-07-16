@@ -265,3 +265,12 @@ Add an approval action to a stage in a pipeline at the point where you want the 
 
 If the action is approved, the pipeline processing resumes. If the action is rejected –or if no one approves or rejects the action within seven days of the pipeline reaching the action and stopping–  the result is the same as an action failing, and the pipeline processing does not continue.
 
+### Deploying infrastructure code changes in a CI/CD pipeline
+
+AWS CodePipeline lets you select AWS CloudFormation as a deployment action in any stage of your pipeline. You can then choose the specific action you would like AWS CloudFormation to perform, such as creating or deleting stacks and creating or executing change sets.
+
+A **stack** is an AWS CloudFormation concept and represents a group of related AWS resources. While there are many ways of provisioning infrastructure as code (IaC), **AWS CloudFormation** is a comprehensive tool recommended by AWS as a scalable, complete solution that can describe the most comprehensive set of AWS resources as code. AWS recommmends using AWS CloudFormation in an AWS CodePipeline project to track infrastructure changes and tests.
+
+### CI/CD for serverless applications
+
+Amazon CodeCatalysts makes buiding CI/CD pipelines or workflows easy for serverless applications. You can use one of the serverless blueprints from the library
