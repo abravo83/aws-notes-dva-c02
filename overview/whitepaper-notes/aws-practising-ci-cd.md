@@ -257,3 +257,11 @@ Lambda functions can be used in a CI/CD pipeline to do many tasks based on your 
 - Create resources on demand in one stage of a pipeline using AWS CloudFormation and delete them in another stage.
 - Deploy to Amazon Elastic Container (ECS) Docker Instances.
 - Back up resources before building or deploying by creating an AMI snapshot.
+- Add integration with third-party products to your pipeline, such as posting messages to an Internet Relay Chat (IRC) client.
+
+### Manual approvals
+
+Add an approval action to a stage in a pipeline at the point where you want the pipeline processing to stop so that someone with the required AWS **Identity and Access Management** (IAM) permissions can approve or reject the action.
+
+If the action is approved, the pipeline processing resumes. If the action is rejected –or if no one approves or rejects the action within seven days of the pipeline reaching the action and stopping–  the result is the same as an action failing, and the pipeline processing does not continue.
+
