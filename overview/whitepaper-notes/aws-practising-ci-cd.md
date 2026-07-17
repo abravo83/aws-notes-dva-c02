@@ -284,3 +284,19 @@ You can also create secure CI/CD pipelines that follow your organization´s best
 SAM Pipelines are a new feature of AWS SAM CLI that give you access to the benefits of CI/CD in minutes. They give you access to a set of default pipeline templates for AWS CodeBuild/CodePipeline that follow AWS deployment best practises.
 
 ### Pipelines for multiple teams, branches and AWS Regions
+
+It is not uncommon, for multiple project teams, to work on different components. If multiple teams usa a single code repository, it can be mapped so that each team has its own branch. There should also be an integration or release branch for the final merge of the project. If it is a service-oriented or microservice architecture, each team could have its own repository.
+
+In the first scenario, if a single pipeline is used it's possible that one team could affect the other's team progress by blocking the pipeline. 
+
+> AWS recommends that you create specific pipelines for team branches and another release pipeline for the final product delivery.
+
+### Pipeline integration with AWS CodeBuild
+
+AWS CodeBuild is designed to enable your organization to build a highly available build process with almost unlimited scale. CodeBuild provides quickstart environments for a number of popular languages plus the ability to run any Docker container that you specify.
+
+With the advantages of tight integration with AWS **CodeCommits**, CodePipeline, and **CodeDeploy**, as well as Git and CodePipeline actions, the CodeBuild service is highly flexible.
+
+Software can be built through the inclusion of a buildspec.yml file that identifies each of the build steps, including pre- and post- build actions, or specified actions through the CodeBuild tool.
+
+You can view detailed history of each build using the CodeBuild dashboard. Events are stored as **Amazon CloudWatch** log files.
