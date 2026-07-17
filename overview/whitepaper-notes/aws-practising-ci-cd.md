@@ -300,3 +300,11 @@ With the advantages of tight integration with AWS **CodeCommits**, CodePipeline,
 Software can be built through the inclusion of a buildspec.yml file that identifies each of the build steps, including pre- and post- build actions, or specified actions through the CodeBuild tool.
 
 You can view detailed history of each build using the CodeBuild dashboard. Events are stored as **Amazon CloudWatch** log files.
+
+### Pipeline integration with Jenkins
+
+You can use the Jenkins build tool to create delivery pipelins. These pipelines use standard jobs that define steps for implementing continuous delivery stages. This is not optimal for larger projects because the current state of the pipeline doesn´t persist between Jenkins restarts, implementing manual approval is not straightforward, and tracking the state of a complex pipeline can be complicated.
+
+AWS recomends that you use instead the [AWS Code Pipeline Plugin](https://wiki.jenkins-ci.org/display/JENKINS/AWS+CodePipeline+Plugin) for Jenkins. This plugin allows complex workflows to be described using Groovy-like domain-specific language and can be used to orchestrate complex pipelines. This plugin can also have its functionality enhanced by using satellite plugins like [Pipeline Stage View Plugin](https://plugins.jenkins.io/aws-codepipeline/), that helps you visualize the current progress of the defined stages of the pipeline, or [Pipeline Multibranch Plugin](https://plugins.jenkins.io/workflow-multibranch/), which groups builds from different branches.
+
+It is recommended that you store your pipeline configuration in `Jenkinsfile` and have it checked into a source code repository. This allows for tracking changes to pipeline code and becomes even more important when working with the `Pipeline Multibranch Plugin`. AWS recommends that you divide your pipeline into stages. This logically groups the pipeline steps and also enables the Pipeline Stage View Plugin to visualize the current state of the pipeline.
