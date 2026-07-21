@@ -46,3 +46,71 @@ We will dive deeper into deployment automation, and answering questions around a
 
  You will have to answer questions on how to use application requirements to determine the needed memory and the compute power, profile the application performance, cache content based on request headers, use subscription filter policites to optimize messagings.
 
+## Services needed to kown in order of importance and frecuency of appearance in the tests
+
+### Tier 1
+
+Services you need to know
+
+- Lambda
+- API Gateway
+- DynamoDB
+- S3
+- SQS & SNS
+- IAM
+
+They ALWAYS show up in the certification exam.
+
+### Tier 2
+
+Services you need to understand conceptually
+
+- Cognito
+- KMS
+- Secret Manager & Parameter Store
+- X-Ray
+- CloudWatch
+- CodePipeline
+- CloudFormation & SAM
+- EventBridge
+- Step Functions
+- ElasticCache
+
+They usually show up but they do not require the same depth of knowledge as the Tier 1 services.
+
+### In Between Tier 1 and 3
+
+- Elastic BeanStore
+- ECS
+
+You need to understand the problems they show when you use them and basics on how they handle deployments
+
+### Tier 3
+
+Awareness Level
+
+- Kinesis
+- AppSYnc
+- Amplify
+
+## Plan 
+
+### 1st Step: Diagnostic and gap analysis
+
+Take a mock test to know your actual level and the gaps of the knowledge you are missing.
+
+### 2nd Step: Core services deep dive.
+
+- Deep on Lambda:
+  - How does it triggered
+  - How does it scale
+  - How to handle errors
+  - What is their runtime
+  - How you can deploy them
+
+- Deep on API Gateway
+  - What are different types 
+  - How do you control traffic
+  - What are the authorization options
+
+  Resolve 20-30 questions in this two services
