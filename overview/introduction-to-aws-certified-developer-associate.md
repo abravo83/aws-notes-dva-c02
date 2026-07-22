@@ -114,3 +114,55 @@ Take a mock test to know your actual level and the gaps of the knowledge you are
   - What are the authorization options
 
   Resolve 20-30 questions in this two services
+
+  ### 3rd Step: Main services
+
+  Get Proficient in S3, DynamoDB, and Messaging Services
+
+  - DynamoDB:
+    - How is data organized?
+    - How is data retrived?
+    - Different capacity options
+  
+  - S3:
+    - Storage options
+    - Security
+    - How it integrates with other services
+  
+  - SQS & SNS:
+    - The different queue types
+    - When you use massaging to decouple an architecture
+  
+  ### 4rd step: Security
+
+  - IAM:
+    - Policies
+    - How permissions actually work
+  - Cognito:
+    - How Cognito works
+    - Difference between user pools and identity pools
+  - KMS
+    - How encryption with KMS works
+    - The difference between a Secrets Manager and a Parameter Store
+
+  ### 5th step: Deployment
+
+  - CodePipeline family:
+    - CodeCommit
+    - CodeBuild
+    - CodeDeploy
+  - Key configuration files and how they work
+  - Understanding key concepts: Blue/Green, Rollbacks, Canary
+  - Infrastructure code: BAsics on cloud formation, serverless applications
+
+  ### 6th step: Troubelshooting + Mock Exam gauntlet
+
+    - XRay: Tracing requests
+    - CloudWatch: Metrics and logs
+    - As many mock exams as possible: Review and study gaps
+  
+  ### 7th step: Targeted review and real exam
+
+    - Review what you feel that needs reinforcement
+    - Rest
+    - Take the exam
