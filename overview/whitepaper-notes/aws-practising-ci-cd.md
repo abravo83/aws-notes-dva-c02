@@ -308,3 +308,29 @@ You can use the Jenkins build tool to create delivery pipelins. These pipelines 
 AWS recomends that you use instead the [AWS Code Pipeline Plugin](https://wiki.jenkins-ci.org/display/JENKINS/AWS+CodePipeline+Plugin) for Jenkins. This plugin allows complex workflows to be described using Groovy-like domain-specific language and can be used to orchestrate complex pipelines. This plugin can also have its functionality enhanced by using satellite plugins like [Pipeline Stage View Plugin](https://plugins.jenkins.io/aws-codepipeline/), that helps you visualize the current progress of the defined stages of the pipeline, or [Pipeline Multibranch Plugin](https://plugins.jenkins.io/workflow-multibranch/), which groups builds from different branches.
 
 It is recommended that you store your pipeline configuration in `Jenkinsfile` and have it checked into a source code repository. This allows for tracking changes to pipeline code and becomes even more important when working with the `Pipeline Multibranch Plugin`. AWS recommends that you divide your pipeline into stages. This logically groups the pipeline steps and also enables the Pipeline Stage View Plugin to visualize the current state of the pipeline.
+
+### Deployment methods
+
+In a CD process there are multiple strategies for rolling out new versions of software:
+
+- Deploy in place:
+  - If fails: Downtime, has 1x deploytime and zero deploymente downtime. Has some downtime when deployment is done. Requires DNS change, the rollback process is redeploy to the existing instance.
+  - Consist in deploying the code of the application to an existing fleet of servers all at once.
+
+- Rolling deploy:
+  - If it fails, a single batch goes out of service. Any successful batches prior to failure running new application version. Require 2x times the deploy time. Zero deploy downtime. DNS changes. Rollback process is re-deploy. Code is deployed to existing instances.
+  - Consist on deploying to a fleet, but dividing this fleet into portions, so that all of the fleet isn't upgraded at once. There are two software versions, new and old, running on the same fleet. If the deployment fails, only the updated portion of the fleet will be affected.
+
+- Inmutable deploy:
+  - Has a minimal impact when deployment fails. Takes x4 times the time of an in place deployment. Zero downtime and DNS change needed. The rollback process is by redeploying. Deployed to new instances.
+  - Consists on starting an entire new set of servers with the new configuration or version of the application code. This pattern leverages the cloud capability that new server resources are created with simple API calls.
+
+- Traffic splitting: 
+  - Has minimal impact when deployment fails. Takes x4 times. No downtime and need DNS change. The rollback strategy is rerouting and terminating new instances. Deployment is to new instances.
+
+- Blue/Green deployment:
+  - Has minimal impact when deployment fails. Takes x4 times. Has zero downtime and does not require DNS change. Rollback strategy is to switch back to old environment. Deployment to a new instance.
+  - Is similar to the inmutable deployment, but also requiring the creation of another environment. Once the new environment is up, traffic is shifted to the new deployment. Old environment is kept idle in case of a rollback needed. The idle environment is the "blue" environment.
+
+- Canary release:
+  - Is similar to rolling deployment but it is deployed to a small subset of the servers 
