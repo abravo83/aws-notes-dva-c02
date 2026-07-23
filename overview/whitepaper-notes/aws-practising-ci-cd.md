@@ -373,4 +373,8 @@ DAST tools are also named as black-box solutions. They test the applications dur
 
 IAST tools are a combination of SAST and DAST tools and embody both tools andvantages within. They are usually facilitated during the test and QA stages since it is the closest version of the production-level code. While running dynamically to identify the issues like a DAST tool, it will also be run inside the application server to evaluate the code like a SAST tool. The findings are real-time and IAST tools are also useful for API testing.
 
+### Penetration testing
+
+Penetration testing (Pentesting) aims to make sure that no vulnerability or non-compliant assets go unnoticed towards the end-product. Both tool and human based penetration testing methodologies are used towards applications and both have their benefits towards detecting vulnerabilities. Penetration testing should be done with a multi-directional approach while traversing the application to monitor and detect possible behaviors of the application and user experiences.
+
 
