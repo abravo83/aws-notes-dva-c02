@@ -333,4 +333,21 @@ In a CD process there are multiple strategies for rolling out new versions of so
   - Is similar to the inmutable deployment, but also requiring the creation of another environment. Once the new environment is up, traffic is shifted to the new deployment. Old environment is kept idle in case of a rollback needed. The idle environment is the "blue" environment.
 
 - Canary release:
-  - Is similar to rolling deployment but it is deployed to a small subset of the servers 
+  - Is similar to rolling deployment but it is deployed to a small subset of the servers.
+
+## Security in every stage of the CI/CD pipeline
+
+Security must be applied to every component of the infrastructure, including CI/CD pipelines, from the moment a single line of code is written to the stages where it's deployed. That deployment can include multiple environments, identities, systems, and any applications which interact with it. During its journey, it's modified and updated continuously.
+
+Every change needs to be monitored and made sure that it's safe to release towards the environment you are building. For every stage, there are multiple controls that can be embedded to the process whereas tool integrations are not sufficient by themselves for the secure CI/CD pipeline.
+
+From the people, processes, and technology perspective:
+
+- People delivering, handling, and monitoring the code, must have the awareness towards secure coding practices. They should stick to these guidelines and must never abandon them to deliver faster.
+
+- Processes must be difend and reiterated continuously to make sure that your level of security is consistent across each and every stage of the pipeline.
+
+- Technologies must be implemented to support the process mentioned above in each and every stage and must never be circumvented.
+
+### Pre-commit hooks
+
