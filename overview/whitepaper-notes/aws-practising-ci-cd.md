@@ -371,4 +371,6 @@ DAST tools are also named as black-box solutions. They test the applications dur
 
 ### Interactive Application Security Testing (IAST)
 
+IAST tools are a combination of SAST and DAST tools and embody both tools andvantages within. They are usually facilitated during the test and QA stages since it is the closest version of the production-level code. While running dynamically to identify the issues like a DAST tool, it will also be run inside the application server to evaluate the code like a SAST tool. The findings are real-time and IAST tools are also useful for API testing.
+
 
