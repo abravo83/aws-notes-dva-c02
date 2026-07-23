@@ -351,3 +351,24 @@ From the people, processes, and technology perspective:
 
 ### Pre-commit hooks
 
+They are scripts that are run at the developer's environment before a change to code is commited to the pipeline. They are controls that can be configured per general practices or company policies and any code update that is not compliant against those policies are blocked until they are corrected.
+
+### IDE tools and plugins
+
+Integrated Development Environment (IDE) is the tool most developers use to write their code. IDEs bring convenience to the developers with built-in or deployable plugins which can walk through the code, including, but not limited to, detecting potential issues, giving recommendations for improvements, linting, formatting, beautifying and securing it.
+
+### Static Application Security Testing (SAST)
+
+SAST, aka static analysis or static code analysis, are tools that detect bugs by analyzing the source code. SAST tools are built with the general approach of working backwards by dissecting the vulnerabilities to define possible attack methodologies and generate signatures against them to act as a preventative measure.
+
+### Software Composition Analysis (SCA)
+
+SCA is an automated process to identify the open-source packages that are in use within the code to define vulnerabilities and potential compliance-based issues. SCA tools identify open-source packages in an application and all the vulnerabilities that are present in them. They can also check the licenses for each package, check dependencies and bring infrastructure as code (IaC) manifests for potential vulnerabilities in contenarized environments.
+
+### Dynamic Application Security Testing (DAST)
+
+DAST tools are also named as black-box solutions. They test the applications during the lifecycle of their operations and give recommendations towards potential vulnerabilites and compliance issues. Since they monitor the behavior of the applications, they tend to generate less false positives compared to SAST tools.
+
+### Interactive Application Security Testing (IAST)
+
+
