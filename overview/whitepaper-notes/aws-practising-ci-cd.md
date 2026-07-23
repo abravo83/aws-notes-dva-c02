@@ -378,3 +378,27 @@ IAST tools are a combination of SAST and DAST tools and embody both tools andvan
 Penetration testing (Pentesting) aims to make sure that no vulnerability or non-compliant assets go unnoticed towards the end-product. Both tool and human based penetration testing methodologies are used towards applications and both have their benefits towards detecting vulnerabilities. Penetration testing should be done with a multi-directional approach while traversing the application to monitor and detect possible behaviors of the application and user experiences.
 
 
+### Red/Blue/Purple teaming
+
+Red/Blue/Purple teams are security experts with different roles to simulate real-life cyber-attacks. Their aim is to pinpoint system deficits, improve protection mechanisms and processes, and maximize the efficiency of the infrastructure while minimizing the risk. Red teams represent the attackers, blue teams operate as the defenders, and purple teams include members of both teams to fulfull a multi-faceted approach and bring various perspectives for security.
+
+### Software Bill of Materials (SBoM)
+
+SBoM is a complete, firnakky structured list of components, libraries and modules that are required to build a given piece of software and the supply chain relationships between them. In the US, SBoM are required in goverment contracts through and Executive Order.
+
+#### Why is SBoM important?
+
+SBoM serves three main purposes:
+- **Intellectual property management**: IP Management of patents, copyrights, trade secrets, and source code. Export compliance, open-source license compliance, and regular audits are core components of the IP Management process.
+- **Software Supply Chain Security**: What goes into your software is quite critical and placing proactive measures to avoid managing failures during the production phase. Continuous Vulnerability Management, implementation of End-Of-Life processes for software and building standarized high assurance systems are important steps towards building a Secure Software Supply Chain.S
+- **Asset Management**: You cannot manage what you do not see, therefore to know and understand what your company has as assets, how they operate and interact individually and with each other is important to make improvements. It is also crucial to monitor and document all the assets to ensure only authorized parts are used to protect the supply chain.
+
+> **Software Supply Chain**: Represents everything that is part of an application or interacts with it, during the entire software development life cycle (SDLC). IS is composed of components, libraries, tools, elements, sources, and processes with subcomponents, including but not limited to appliaction dependencies, container (operating system) packages, application package managers, OS package managers, unmanaged source files, unmanaged binaries, and snippets within propietary code.
+> Security Risks towards any of those components will serve as the weakest link to the overall supply chain therefore it is vital to monitor and handle each component vigorously. Mitigating all chain threats may not be possible at first, but managing the risks and prioritizing them while applying general security practises will have a positive impact to the overall risk.
+> _Some of this practises are_:
+> - Apply leat privilege to resources across the software supply chain, enable multi-factor authentications and use strong passwords. Store passwords in encrypted password vaults and facilitate password-less authentication systems where applicable.
+> - Increase employee security awareness with regular training, enablement sessions and game days.
+> - Continuouesly monitor, update, and harden your devices. Isolate, prioritize and maintain systems with critical vulnerabilities.
+> - Know, monitor, and assess your suppliers starting with DIrect (TIer-1) suppliers and going down the line by covering all your suppliers.
+> - Implement secure coding practises and publish them internally for easy access so that they are used across the board and become as part of a developer's coding practise.
+> - Apply security in every stage of the CI/CD pipeline.
