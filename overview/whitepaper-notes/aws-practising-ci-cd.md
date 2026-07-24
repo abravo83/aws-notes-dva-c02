@@ -419,3 +419,39 @@ In genereal, these tools employ some variant of the following methods:
 - Add a table to the database where a database version is stored.
 - Keep track of database change commands, and bunch them together in versioned change sets. In the case of Liquibase, these changes are stored in XML files. FLyway employs a slightly different method where these change sets are handled as separate SQL files or, occasionally, as separate Java classes for more complex transitions.
 - When Liquibase is beign asked to upgrade a database, it looks at the metadata table and determines which change sets to run in order to bring the database up-to-date with the latest version.
+
+## Summary of best practices
+
+**DO**:
+
+- Treat your infrastructure as code:
+  -Use version control for your infrastructure code.
+  - Make use of bug tracking/ticketing systems.
+  - Have peers review changes before applying them.
+  - Test infrastructure code patterns/designs.
+- Put developers into integrated teams of no more than 12 self-sustaining members.
+- Have all developers commit code to the main branch frequently with no long-running feature branches.
+- Consistently adopt a build system such as Maven or Gradel accross your organization and standardize builds.
+- Brake security into your code pipeline.
+- Have developers build unit tests toward 100% coverage of the code base.
+- Ensure that unit tests are up-to-date and not neglected. Unit test failures should be fixed, not bypassed.
+- Treat your continuous deleviery configuration as code.
+- Establish role-based security controls(that is, who can do what and when):
+  - Monitor/Track every resource possible.
+  - Alert on services, availability, and response times.
+  - Capture, learn, and improve.
+  - Share access with everyone on the team.
+  - Plan metrics and monitoring into the lifecycle.
+- Keep and track standard metrics
+  - Number of builds
+  - Number of deployments
+  - Average time for changes to reach production
+  - Average time from the first pipeline stage to each stage
+  - Average build time
+- Use multiple distinct pipelines for each branch and team
+
+**DON'T**:
+
+- Have long-running branches with large complicated merges
+- Have manual tests.
+- Have manual approval processes, gates, code reviews, and security reviews
