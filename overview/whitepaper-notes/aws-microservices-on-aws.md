@@ -66,3 +66,6 @@ Microservices, on the other hand, separate functionalities into cohesive vertica
 > Inside the second column, **Compute integration**, we find another two services: ALB and  Amazon ECS
 > Inside the third column, **Data Store**, we find three services: Amazon ElastiCache, Amazon Aurora, and Amazon DynamoDB.
 
+### User interface
+
+Modern web applications often use JavaScript frameworks to develop SPA that communicate with backend APIs. These APIs are tipically built using Representation State Transfer (REST), or RESTful APIs, or GraphQL APIs. Static web content can be served using Amazon Simple Storage Service (S3) and Amazon CloudFront.
