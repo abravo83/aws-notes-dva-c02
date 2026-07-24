@@ -402,3 +402,20 @@ SBoM serves three main purposes:
 > - Know, monitor, and assess your suppliers starting with DIrect (TIer-1) suppliers and going down the line by covering all your suppliers.
 > - Implement secure coding practises and publish them internally for easy access so that they are used across the board and become as part of a developer's coding practise.
 > - Apply security in every stage of the CI/CD pipeline.
+
+## Database schema changes
+
+It's common for modern software to have a database layer. While we do not recomment the use of relations DBs for new projects due to scaling and other issues, many existing projects use relational database technology and would like to adopt CI/CD.
+
+When a relational database is used it's often necessary to modify the database in the continuous delivery process. Handling changes in a relational database requires special consideration, and it offers other challenges that the ones present when deploying application binaries.
+
+Usually, when you upgrade an application binary, you stop the application, upgrade it, and then start it again. You do not bother about the application state.
+
+When you are upgrading a database, you need to consider the state, because the database contains much state but comparatively little login and structure.
+
+The database schema before and after a change is applied should be considered, as different versions of the database. You should use tools such as **Liquibase** and **Flyway** to manage the versions.
+
+In genereal, these tools employ some variant of the following methods:
+- Add a table to the database where a database version is stored.
+- Keep track of database change commands, and bunch them together in versioned change sets. In the case of Liquibase, these changes are stored in XML files. FLyway employs a slightly different method where these change sets are handled as separate SQL files or, occasionally, as separate Java classes for more complex transitions.
+- When Liquibase is beign asked to upgrade a database, it looks at the metadata table and determines which change sets to run in order to bring the database up-to-date with the latest version.
