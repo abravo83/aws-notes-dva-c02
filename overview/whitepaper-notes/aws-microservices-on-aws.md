@@ -69,3 +69,25 @@ Microservices, on the other hand, separate functionalities into cohesive vertica
 ### User interface
 
 Modern web applications often use JavaScript frameworks to develop SPA that communicate with backend APIs. These APIs are tipically built using Representation State Transfer (REST), or RESTful APIs, or GraphQL APIs. Static web content can be served using Amazon Simple Storage Service (S3) and Amazon CloudFront.
+
+### Microservices implementations
+
+AWS offers building blocks to develop microservices, including Amazon ECS, and EKS as the choices for container orchestration engines and AWS Fargate and EC2 as hosting options.
+
+AWS Lambda allows you to upload your code, automatically scaling and managing its execution with high availability. It eliminates the need for infrastructure management, so that you can move quickly and focus onyour business logic. Lambda supports multiple programming languages and can be triggered by other AWS services or called directly from web or mobile applications.
+
+Container-based applications have gained popularity due to portability, productivity, and efficiency. AWS offers serveral services to build, deploy and manage containers.
+
+- App2Container, a command line tool for migrating and modernizing Java and .NET web apps into container format. AWS A2C analyzes and builds an inventory of applications running in bare metal, virtual machines, Amazon Elastic Compute Cloud (EC2) instances or in the cloud.
+
+- Amazon Elastic Container Service (ECS) and Elastic Kubernetes Service (EKS) manage your container infrastructure, making it easier to launch and maintain containerized applications.
+
+- Amazon EKS is a managed Kubernetes service to run Kubernetes in the AWS cloud and on on-premises data centers ([Amazon EKS Anywhere](https://aws.amazon.com/eks/eks-anywhere/)). This extends cloud services into on-premises environments for low-latency, local data processing, high data transfer costs, or data residency requirementes. You can use all the existing plug-ins and tooling from the Kubernetes community with EKS.
+
+- Amazon Elastic Container Service (ECS) is a fully managed container orchestration service that simplifies your deployment, management, and scaling of containerized applications. Customers choose ECS for simplicity and deep integration with AWS services.
+
+- AWS App Runner is a fully managed container service that lets you build, deploy, and run conatinerized web applications and API services without prior infrastructure or container experience.
+
+- AWS Fargate, a serverless compute engine, works with Amazon ECS and EKS to automatically manage compute resources for container applications.
+
+- Amazon ECR is a fully managed container registry offering high-performance hosting, so you can reliably deploy application images and artifacts anywhere.
