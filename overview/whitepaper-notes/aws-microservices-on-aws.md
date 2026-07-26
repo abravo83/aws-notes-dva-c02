@@ -146,3 +146,9 @@ AWS_CloudFormation --> Amazon_DynamoDB;
 AWS_CloudFormation --> Amazon_API_Gateway;
 ```
 
+## Abstracting multi-tenancy complexities.
+
+In a multi-tenant environment, like SaaS platforms, it's crucial to streamline the intrincates related to multi-tenancy, freeing up developers to concentrate on feature and functionality development. This can be achieved using tools such as AWS Lambda Layers which offer shared libraries for addressing cross-cutting concerns. The rationale behind this approach is that shared libraries and tools, when used correctly, efficiently manage tenant content.
+
+However, they should not extend to encapsulating business logic due to the complexity and risk they may introduce. A fundamental issue with shared libraries is the increased complexity surrounding updates, making them more challenging to manage compared to standard code duplication. Thus, it's essential to strike a balance between the use of shared libraries and duplication in the quest for the most effective abstraction.
+
