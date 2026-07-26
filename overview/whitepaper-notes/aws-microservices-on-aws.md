@@ -135,7 +135,7 @@ Integration with tools like AWS Cloud9 IDE, AWS CodeBuild, AWS CodeDeploy, and A
 THe following mermaid diagram shows what deploying to AWS Serverless Application Model resources using CloudFormation and AWS CI/CD tools looks like.
 
 ```mermaid
-graph TD;
+graph TB;
 Code/Packages/Swagger --> Package_&_Deploy;
 Serverless_Template --> Package_&_Deploy;
 Package_&_Deploy --> Amazon_S3;
@@ -151,4 +151,26 @@ AWS_CloudFormation --> Amazon_API_Gateway;
 In a multi-tenant environment, like SaaS platforms, it's crucial to streamline the intrincates related to multi-tenancy, freeing up developers to concentrate on feature and functionality development. This can be achieved using tools such as AWS Lambda Layers which offer shared libraries for addressing cross-cutting concerns. The rationale behind this approach is that shared libraries and tools, when used correctly, efficiently manage tenant content.
 
 However, they should not extend to encapsulating business logic due to the complexity and risk they may introduce. A fundamental issue with shared libraries is the increased complexity surrounding updates, making them more challenging to manage compared to standard code duplication. Thus, it's essential to strike a balance between the use of shared libraries and duplication in the quest for the most effective abstraction.
+
+## API management
+
+Managing APIs can be time-consuming, especially when considering multiple versions, stages of the development cycle, authorization, and other features like throttling and caching. Apart from AWS API Gateway, some customers also usl ALB (Application Load Balancer) or NLB (Network Load Balancer) for API management. Amazon API Gateway helps reduce the operational complexity of creating and maintaining RESTful APIs. It allows you yo create APIs programmatically, serves as a "front door" to access data, business logic, or functionality from your backend services, Authorization and access control, rate limiting, caching, monitoring, and traffic management and runs APIs without managing servers.
+
+Figure 3 illustrates how API Gateway handles API calls and interacts with other components.
+
+```mermaid
+graph TB;
+Mobile_client --> Internet;
+Websites --> Internet;
+Partner_Services --> Internet;
+Internet --> Amazon_CloudFront;
+Amazon_CloudFront --> Amazon_API_Gateway;
+Cache <--> Amazon_API_Gateway;
+Amazon_CloudWatch <--> Amazon_API_Gateway;
+Amazon_API_Gateway --> AWS_Lambda;
+Amazon_API_Gateway --> Amazon_EC2;
+Amazon_API_Gateway --> Amazon_ECS;
+Amazon_API_Gateway --> Amazon_EKS;
+Amazon_API_Gateway --> Any_Public_Accessible_Endpoint;
+```
 
