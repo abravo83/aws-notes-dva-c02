@@ -91,3 +91,58 @@ Container-based applications have gained popularity due to portability, producti
 - AWS Fargate, a serverless compute engine, works with Amazon ECS and EKS to automatically manage compute resources for container applications.
 
 - Amazon ECR is a fully managed container registry offering high-performance hosting, so you can reliably deploy application images and artifacts anywhere.
+
+### Continuous integration and continuous deployment (CI/CD)
+
+Continuous integration and continuous delivery (CI/CD) is a crucial part of a DevOps initiative for rapid software changes. AWS offers services to implement CI/CD for microservices, but a detailed discussion is beyond the scope of this document. For more information, see the Practicing Continuous integration and Continuous Delivery on AWS whitepaper.
+
+### Private networking
+
+AWS PrivateLink is a thecnology that enhances the security of microservices by allowing private connections between your Virtual Private Cloud (VPC) and supported AWS services. It helps isolate and secure microservices traffic, ensuring it never crosses the public internet. This if particularly usesful for complying with regulations like PCI or HIPAA.
+
+### Data store
+
+The data store is used to presist data needed by the microservices. Popular stores for session data are in-memory-chaces such as Memcached or Redis. AWS offers both technologies as part of the managed Amazon ElastiCache service.
+
+Putting a cache between application servers and a database is a common mechanism for reducing the read load on the database, which, in turn, may allow resources to be used to support more writes. Caches can also improve latency.
+
+Relational databases are still very popular to stored structured data and business objects. AWS offers six databases engines (Microsoft SQL Server, Oracle, MySQL, MariaDB, PostgreSQL, and Amazon Aurora) as managed services through [Amazon Relational Database Servie](https://aws.amazon.com/rds/) (Amazon RDS)
+
+Relational databases are, however, not desing for endless scale, which can make it difficult and time insentive to apply techniques to support a high number of queries.
+
+NoSQL databases have been designed to favor scalability, performance, and availability over the consistency of relational databases. One important element of NoSQL databases is that they tipically don't enforce strict schema. Data is distributed over partitions that can be scaled horizontally and is retrived using partition keys.
+
+Because individual microservices are designed to do one thig well, they tipically have a simplified data model that might be well suited to NoSQL persistence. It is  important to undestand that NoSQL databases have different access patterns that relational databases. For example, it's not possible to join tables. If this is necessary, the logic has to be implemented in the application. You can use Amazon DynamoDB to create a database table that can store and retrieve any amount of data and serve any level of request traffic. DynamoDB delivers single-digit milisecond performance, however, there are certain use cases that require response times in microseconds. DynamoDB Accelerator (DAX) provides caching capabilities for accesing data.
+
+DynamoDB also offers an automatic scaling feature to dynamically adjut thorughput capacity in response to actual traffic. However, there are cases where capacity planning is difficult or not possible because of large activity spikes of short duration in your application. For such situations, DynamoDB provides an on-demand option, which offers simple pay-per-request pricing. DynamoDB  on-demand is capable of serving thousands of requests per second instantly without capacity planning.
+
+For more information, visit [#Distributed data management](##distributed-data-management) and [How to Choose a Database](https://aws.amazon.com/startups/learn/maximizing-performance-with-aws-databases)
+
+## Simplifying operations
+
+TO further simplify the operational efforts needed to run, maintain, and monitor microservices, we can use a fully serverless architecture.
+
+### Deploying Lambda-based applications
+
+You can deploy your Lambda code by uploading a zip file or by creating and uploading a container image through the console UI using a valid Amazon ECR image URI. However, when a Lambda function becomes complex, meaning it has layers, dependencies, and permissions, uploading through the UI can become unwieldy for code changes.
+
+Using AWS CloudFormation and the AWS Serverless Application Model ([AWS SAM](https://github.com/awslabs/serverless-application-model)), AWS Cloud Development Kit (AWS CDK), or Terraform streamlines the process of defining serverless applications. AWS SAM, natively supported by CloudFormation, offers a simplified syntax for specifying serverless resources. AWS Lambda Layers help manage shared libraries across multiple Lambda functions, minimizing function footprint, centralizing tenant-aware libraries, and improving the developer experience. Lambda SnapStart for Java enhances startup performance for latency-sensitive applications.
+
+To deploy, specify resources and permissions policies in a CloudFormation template, package deployment artifacts, and deploy the template. SAM Local, an AWS CLI tool, allows local development, testing, and analysis of serverless applications before uploading to Lambda.
+
+Integration with tools like AWS Cloud9 IDE, AWS CodeBuild, AWS CodeDeploy, and AWS CodePipeline streamlines authoring, testing, debugging, and deploying SAM-based applications.
+
+THe following mermaid diagram shows what deploying to AWS Serverless Application Model resources using CloudFormation and AWS CI/CD tools looks like.
+
+```mermaid
+graph TD;
+Code/Packages/Swagger --> Package_&_Deploy;
+Serverless_Template --> Package_&_Deploy;
+Package_&_Deploy --> Amazon_S3;
+Amazon_S3 --> Serverless_Template_w/CodeUri;
+Serverless_Template_w/CodeUri --> AWS_CloudFormation;
+AWS_CloudFormation --> AWS_Lambda;
+AWS_CloudFormation --> Amazon_DynamoDB;
+AWS_CloudFormation --> Amazon_API_Gateway;
+```
+
