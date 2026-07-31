@@ -213,3 +213,16 @@ Microservices applications often follow the Twelve-Factor Application patterns, 
 Disaster recovery strategies for microservices should focus on downstreams services that maintain the application's state, such as file systems, databases, or queues. Organizations should plan for recovery time objective (RTO) and recovery point objective (RPO). RTO is the maximum acceptable delay between service interruption and restoration, while RPO is the maximum time since the last data recovery point.
 
 More on disaster recovery strategies in the [AWS Disaster Recovery of Workloads: Recovery in the Cloud](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html)
+
+### High availability (HA)
+
+We will examine high availability of various components of a microservices architecture.
+
+Amazon EKS provides HA by running Kubernetes control and data plane instances across multiple availability zones. It automatically detects and replaces unhealthy control plane instances and provides automated version upgrades and patching.
+
+Amazon ECR uses Amazon S3 for storage to make your container images highly available and accesible. It works with Amazon EKS, ECS, and Lambda, simplifying development to production workflow.
+
+ECS is a regional service that simplifies running containers in a highly available manner across multiple Availability Zones within a Region, offering multiple scheduling strategies that place containers  for resource needs and availability requirements.
+
+Lambda operates in multiple Availability Zones, ensuring availability during service interruptions in a single zone. If connectiong your function to a VPC, specify subnets in multiple Availability Zones for high availability.
+
