@@ -174,3 +174,33 @@ Amazon_API_Gateway --> Amazon_EKS;
 Amazon_API_Gateway --> Any_Public_Accessible_Endpoint;
 ```
 
+## Microservices on serverless technologies
+
+Using microservices with serverless technologies can greatly decrease operational complexity. AWS Lambda and AWS Fargate, integrated with API Gateway, allows for the creation of fully serverless applications. Since 2023, Lambda functions can progressively stream response payloads back to the client, enhancing performance for web and mobile applications. Before this, Lambda-based applications using the traditional request-response invocation model had to generate and buffer the response before returning it to the client, which could delay the time to first byte. With response streaming, functions can send partial responses back to the client as they become ready, significantly improving the time to first byte, which web and mobile applications are especially sensitive to.
+
+The next graph demonstrates a serverless microservice architecture using AWS Lambda and managed services. This serverless architecture mitigates the need to design for scale and high availability, and reduces the effort needed for running and monitoring the underlying infrastructure.
+
+CloudFront and S3 belong to the User Interface block.
+API Gateway and Lambda to the Compute implementation.
+Aurora and DynamoDB to the Data Store.
+
+```mermaid
+graph LR;
+Amazon_CloudFront --> Amazon_API_Gateway;
+Amazon_CloudFront --> Amazon_S3;
+Amazon_API_Gateway --> AWS_Lambda;
+AWS_Lambda --> Amazon_Aurora;
+AWS_Lambda --> Amazon_DynamoDB;
+```
+The next graph displays a similar serverless implementation using containers with AWS Fargate, removing concerns about underlying infrastructure. It also features Amazon Aurora Serverless, the on-demand, autoscaling database that adjusts capacity based on your application requirements.
+
+```mermaid
+graph LR;
+AmazonCloudFront --> Amazon_S3;
+AmazonCloudFront --> Amazon_API_Gateway;
+Amazon_API_Gateway --> Application_Load_Balancer;
+Application_Load_Balancer --> AWS_Fargate;
+AWS_Fargate --> Amazon_Aurora;
+AWS_Fargate --> Amazon_DynamoDB;
+```
+
