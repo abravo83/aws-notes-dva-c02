@@ -204,3 +204,12 @@ AWS_Fargate --> Amazon_Aurora;
 AWS_Fargate --> Amazon_DynamoDB;
 ```
 
+## Resilient and efficient systems
+
+### Disaster recovery (DR)
+
+Microservices applications often follow the Twelve-Factor Application patterns, where processes are stateless, and persistent data is stored in stateful backing services like databases. This simplifies disaster recovery (DR) because if a service fails, it's easy to launch new instances to restore functionality.
+
+Disaster recovery strategies for microservices should focus on downstreams services that maintain the application's state, such as file systems, databases, or queues. Organizations should plan for recovery time objective (RTO) and recovery point objective (RPO). RTO is the maximum acceptable delay between service interruption and restoration, while RPO is the maximum time since the last data recovery point.
+
+More on disaster recovery strategies in the [AWS Disaster Recovery of Workloads: Recovery in the Cloud](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html)
