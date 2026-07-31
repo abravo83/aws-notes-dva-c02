@@ -226,3 +226,25 @@ ECS is a regional service that simplifies running containers in a highly availab
 
 Lambda operates in multiple Availability Zones, ensuring availability during service interruptions in a single zone. If connectiong your function to a VPC, specify subnets in multiple Availability Zones for high availability.
 
+## Distributed systems components
+
+In a microservices architecture, **service discovery** is the process of dynamically locating and identifying the network locations (IP addresses and ports) of individual microservices within a distributed system.
+
+When choosing an approach on AWS, consider factors such as:
+
+- Code modificacion: Can you get the benefits without modifying code?
+- Cross-VPC or cross-account traffic: If required, does your system need efficient management of communication accors different VPCs or AWS accounts?
+- Deployment strategies: Does your system use or plan to use advance deployment strategies such as blue-green or canary deployments?
+- Performance considerations: If your architecture frequently communicates with external services, what will be the impact on overall performance?
+
+AWS offers several methods for implementing service discovery in your microservices architecture:
+
+- ECS service discovery: ECS supports service discovery using its DNS-based method or by integrating with AWS Cloud Map. ECS Service Connect further improves connection management, which can be especially beneficial for larger applications with multiple interacting services.
+
+- Amazon Route 53: Route 53 integrates with ECS and other services, like EKS, to facilitate service discovery. In an ECS context, Route 53 can use the ECS Service Discovery feature, which leverages the Auto Naming API to automatically register and deregister services.
+
+- AWS Cloud Map: This offers dynamic API-based service discovery, which propagates changes across your services.
+
+For more advanced communications needs, Amazon VPC Lattice is an application networking service that consistenly connects, monitors, and secures communications between your services, helping to improve productivity so that your developers can focus on building features that matter to your bussiness. You can define policies for network traffic management, acces, and monitoring to connect compute services in a simplified and consistent way accross instances, containers, and serverless applications.
+
+If your are already using third party software like HashiCorp Consult, Netflix Eureka, for service discovery, you might preffer to continue using this while you migrate.
