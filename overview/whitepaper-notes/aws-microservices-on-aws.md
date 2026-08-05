@@ -305,3 +305,11 @@ On AWS, you can implement these patterns using a combination of services. As you
 
 Remember that, in distributed systems, events might be delivered multiple times due to retries, so it's important to design your applications to handle this.
 
+## Configuration management
+
+In a microservices architecture, each service interacts with various resources like databases, queues, and other services. A consistent way to configure each service's connections and operating environment is vital. Ideally, an application should adapt to new configurations without needing a restart. This approach is part of the Twelve-Factor App principles, which recommends storing configurations in environment variables.
+
+A different approach is to use [AWS App Config](https://aws.amazon.com/systems-manager/features/appconfig/). It's a feature of AWS Systems Manager which makes easy for customers to quickly and safely configure, validate, and deploy feature flags and applications configurations. Your feature flag and configurations data can be validated syntactically or semantically in pre-deployment phase, and can be monitored and automatically rolled back if an alarm that you have configured is triggering. AppConfig can be integrated with Amazon ECS and EKS by using the AppConfig agent. The agent functions as a sidecar container running alongside your ECS and EKS container applications. If you use AWS AppConfig feature flags or other dynamic configuration data in a Lambda function, then we recommend that you add the AppConfig Lambda extension as a layer to your Lambda function.
+
+[GitOps](https://github.com/weaveworks/weave-gitops) is an innovative approach to configuration management that uses Git as the source of truth for all your configuration changes. This means that any changes made to your configuration files are automatically tracked, versioned, and audited through Git.
+
