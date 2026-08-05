@@ -248,3 +248,60 @@ AWS offers several methods for implementing service discovery in your microservi
 For more advanced communications needs, Amazon VPC Lattice is an application networking service that consistenly connects, monitors, and secures communications between your services, helping to improve productivity so that your developers can focus on building features that matter to your bussiness. You can define policies for network traffic management, acces, and monitoring to connect compute services in a simplified and consistent way accross instances, containers, and serverless applications.
 
 If your are already using third party software like HashiCorp Consult, Netflix Eureka, for service discovery, you might preffer to continue using this while you migrate.
+
+## Distributed data management
+
+In traditional applications, all components often share a single database. In contrast, each component of a microsevice-based application maintaings its own data, promoting independence and decentralization. This approach, known as distributed data management, brings new challenges.
+
+One such challenge arises from the trade-off between consistency and performance in distributed systems. It`s often more practical to accept slight delays in data updates (eventual consistency) than to insist on instant updates (inmediate consistency).
+
+Sometimes, business operations require multiple microservices to work together. If one part fails, you might have to undo some completed tasks. The [Saga Pattern](https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-data-persistence/saga-pattern.html) helps manage this by coordinating a series of compensating actions.
+
+To help microservices stay in sync, a centralized data store can be used. This store, managed with tools like AWS Lambda, Step Functions, and EventBridge, can assist in cleaning up and deduplicating data.
+
+```mermaid
+architecture-beta
+    group api(cloud)[AWS Step Functions workflow]
+
+    service start[Start] in api
+    service dbco(database)[DynamoDB CreateOrder] in api
+    service lbpp(server)[Lambda ProcessPayment] in api
+    service dbof(database)[DynamoDB SetOrderFailed] in api
+    service lbuc(server)[Lambda UpdateCustomerAccount] in api
+    service lbrc(server)[Lambda RefundCustomer] in api
+    service nf(cloud)[SNS NotifyFailure] in api
+    service of(cloud)[SNS OrderFailed] in api
+    service dboc(database)[DynamoDB SetOrderCompleted] in api
+    service ns(cloud)[SNS NotifySuccess] in api
+    service nos(cloud)[SNS OrderSucceeded] in api
+    service end[End] in api
+    junction endJunction in api
+
+
+    start:B --> T:dbco
+    dbco:B --> T:lbpp
+    lbpp:R --> L:dbof
+    lbpp:B --> T:lbuc
+    lbuc:R --> L:lbrc
+    lbrc:R --> L:nf
+    nf:B --> T:of
+    of:B -- T:endJunction
+    dbof:B --> T:nf
+    lbuc:B --> T:dboc
+    dboc:B --> T:ns
+    ns:B --> T:nos
+    nos:R -- L:endJunction
+    endJunction:B --> T:end
+    
+```
+
+A common approach in managing changes across microservices is _event sourcing_. Every change in the application is recorded as an event, creating a timeline of the system's state. This approach not only helps debugs and audit but also allows different parts of an application to react to the same events.
+
+Event sourcing often works hand-in-hand with the Command Query Responsibility Seggregation pattern (CQRS), which separates data modification and data querying into different modules for better performance and security.
+
+On AWS, you can implement these patterns using a combination of services. As you can see in the following figure, Amazon Kinesis Data Streams can serve as yout central event store, while Amazon S3 provides durable storage for all event records. AWS Lambda, DynamoDB and API Gateway work together to handle and process these events.
+
+![fig7](./aws-microservices-img/fig-7.png)
+
+Remember that, in distributed systems, events might be delivered multiple times due to retries, so it's important to design your applications to handle this.
+
