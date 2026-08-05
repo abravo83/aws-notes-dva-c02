@@ -313,3 +313,6 @@ A different approach is to use [AWS App Config](https://aws.amazon.com/systems-m
 
 [GitOps](https://github.com/weaveworks/weave-gitops) is an innovative approach to configuration management that uses Git as the source of truth for all your configuration changes. This means that any changes made to your configuration files are automatically tracked, versioned, and audited through Git.
 
+## Secrets management
+
+Security is paramaount, so credentials should not be passed in plain text. AWS offers secure services for this, like AWS Systems Managers Parameter Store and AWS Secrets Manager. These tools can send secrets to containers in Amazon EKS as volumes, or to Amazon ECS as environment variables. For Kubernetes workflows, the [External Secrets Operator](https://external-secrets.io/v0.8.5/) fetches secrets directly from services like AWS Secrets Manager, creating corresponding Kubernetes Secrets. This enables a seamless integration with Kubernetes-native configurations.
