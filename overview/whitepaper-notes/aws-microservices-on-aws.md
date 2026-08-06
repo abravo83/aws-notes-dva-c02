@@ -315,4 +315,15 @@ A different approach is to use [AWS App Config](https://aws.amazon.com/systems-m
 
 ## Secrets management
 
-Security is paramaount, so credentials should not be passed in plain text. AWS offers secure services for this, like AWS Systems Managers Parameter Store and AWS Secrets Manager. These tools can send secrets to containers in Amazon EKS as volumes, or to Amazon ECS as environment variables. For Kubernetes workflows, the [External Secrets Operator](https://external-secrets.io/v0.8.5/) fetches secrets directly from services like AWS Secrets Manager, creating corresponding Kubernetes Secrets. This enables a seamless integration with Kubernetes-native configurations.
+Security is paramount, so credentials should not be passed in plain text. AWS offers secure services for this, like AWS Systems Managers Parameter Store and AWS Secrets Manager. These tools can send secrets to containers in Amazon EKS as volumes, or to Amazon ECS as environment variables. For Kubernetes workflows, the [External Secrets Operator](https://external-secrets.io/v0.8.5/) fetches secrets directly from services like AWS Secrets Manager, creating corresponding Kubernetes Secrets. This enables a seamless integration with Kubernetes-native configurations.
+
+## Cost  optimization and sustainability
+
+Microservices architecture can enhance cost optimization and sustainability. By breaking an application into smaller parts, you can scale up only the services that need more resources, reducing cost and waste. This is particularly useful when dealing with variable traffic. Micorservices are independently developed. So developers can do smaller updates, and reduce the resources spent on e2e testing. While updating they will have to test only a subset of the features as opposed to monoliths.
+
+Stateless components (services that store state in an external data store instead of a local data store) in your architecture can make use of Amazon EC2 Spot instances, which offer unused EC2 capacity in the AWS cloud. These instances are more cost efficient than on-demand instances and are perfect for workloads that can handle interruptions. This can further cut costs while maintaining high availability.
+
+With isolated services, you can use cost-optimized compute options for each auto-scaling group. For example, AWS Graviton offers cost-effective, high-performance compute options for workloads that suit ARM-based instances.
+
+Optimizing costs and resource usages also helps minimize environmental impact, aligning with the [Sustainability pillar](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html) of a Well-Architected Framework. You can monitor your progress in reducing carbon emissions using the AWS Customer Carbon Footprint tool. This tool provides insights into the enviromental impact of your AWS usage.
+
