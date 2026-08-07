@@ -327,3 +327,44 @@ With isolated services, you can use cost-optimized compute options for each auto
 
 Optimizing costs and resource usages also helps minimize environmental impact, aligning with the [Sustainability pillar](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html) of a Well-Architected Framework. You can monitor your progress in reducing carbon emissions using the AWS Customer Carbon Footprint tool. This tool provides insights into the enviromental impact of your AWS usage.
 
+## Communication mechanisms
+
+In the microservices paradigm, various components of an application must communicate over a network. Common approaches for this include REST-based, GraphQL-based, gRPC-based, and asynchronous messaging.
+
+### REST-based communication
+
+The HTTP/S protocol, used broadly for synchronous communication between microservices, often operates through RESTful APIs. API Gatewat offers a streamlined way to build an API that serves as a centralized access point to backend services, handling tasks like traffic management, authorization, monitoring, and version control.
+
+### GraphQL-based communication
+
+Similarly, GraphQL is a widspread method for synchronous communication, using the same protocols as  REST but limiting exposure to a single endpoint. With AWS AppSync, you can create and publish GraphQL applications that interact with AWS services and datastores directly, or incorporate Lambda functions for business logic.
+
+### gRPC-based communication
+
+gRPC is a synchronous, lightweight, high performance, open-source RPC communication protocol. gRPC improves upon it's underlying protocols by using HTTP/2 and enabling more features such as compressing and stream priorization. It uses Protobuf Interface Definition Language (IDL) which is binary-encoded and thus takes advantage of the HTTP/2 binary framing.
+
+### Asynchronous messaging and event passing
+
+Asynchronous messaging allows services to communicate by sending and recieving messages through a queue. This enables services to remain loosely coupled and promote service discovery.
+
+Messaging can be defined of the following three types:
+
+- Message queues: A message queue acts as a buffer that decouples senders (producers) and receivers (consumers) of messages. Producers enqueue messages into the queue, and consumers dequeue and process them. This pattern is useful for asynchronous communication, load leveling, and handling bursts of traffic.
+
+- Publish-Subscribe: In the publish-subscribe pattern, a message is published to a topic, and a multiple interested subscribers receive the message. This pattern enables broadcasting events or messages to multiple consumers asynchronously.
+
+- Event-Driven Messaging: Event-driven messaging involves capturing and reacting to events that occur in the system. Events are published to a message broker, and interested services subscribe to specific event types. This pattern enables loose coupling and allows services to react to events without direct dependencies.
+
+To implement each of this message types, AWS offers various managed services such as Amazon SQS, Amazon SNS, Amazon EventBridge, Amazon MQ, and Amazon MSK. These services have unique feature tailored to specific needs:
+
+* Amazon Simple Queue Service (SQS) and Amazon Simple Notification Service (SNS) complement each other, with SQS providing a space for storing messages and SNS enabling delivery of the messages to multiple subscribers. They are effective when the same message needs to be delivered to multiple destinations. This is called the message bus pattern.
+
+![Message bus pattern](./aws-microservices-img/fig-8.png)
+
+* Amazon EventBrige: Is a serverless service that uses events to connect application components together, making it easier for you to build scalable event-driven applications. Use it to route events from sources such as home-grown applications, AWS services, and third-party software to consumer applications across your organization. EventBridge provides a simple and consistent way to ingest, filter, transform, and deliver events so you can build new applications quickly. EventBridge event buses are well suited for many-to-many routing of events between event-driven services.
+
+* Amazon MQ: Is a good choice if you have a pre-existing messaging system that uses standard protocols like JMS, AMQP, or similar. This managed service provides a replacement for your system without disrupting operations.
+
+* Amazon MSK (Managed Kafka): Is a messaging system for storing and reading messages, useful for cases where messages must be processed multiple times. It also supports real-time message streaming.
+
+* Amazon Kinesis: Real-time processing and analyzing of streaming data. This allows for the development of real-time applications and provides seamless integration with the AWS ecosystem.
