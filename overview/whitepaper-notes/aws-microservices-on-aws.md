@@ -368,3 +368,9 @@ To implement each of this message types, AWS offers various managed services suc
 * Amazon MSK (Managed Kafka): Is a messaging system for storing and reading messages, useful for cases where messages must be processed multiple times. It also supports real-time message streaming.
 
 * Amazon Kinesis: Real-time processing and analyzing of streaming data. This allows for the development of real-time applications and provides seamless integration with the AWS ecosystem.
+
+## Orchestration and state management
+
+Microservices orchestratin refers to a centralized approach, where a central component, known as the orchestrator, is responsible for managing and coordinating the interactions between microservices. Orchestration workflows across multiple microservices can be challenging. Embedding orchestration code directly into services is discouraged, as it introduces tighter coupling and hinders replacing individual services.
+
+Step Functions provides a workflow engine to manage service orchestrating complexities, such as error handling and serialization.
