@@ -317,7 +317,7 @@ A different approach is to use [AWS App Config](https://aws.amazon.com/systems-m
 
 Security is paramount, so credentials should not be passed in plain text. AWS offers secure services for this, like AWS Systems Managers Parameter Store and AWS Secrets Manager. These tools can send secrets to containers in Amazon EKS as volumes, or to Amazon ECS as environment variables. For Kubernetes workflows, the [External Secrets Operator](https://external-secrets.io/v0.8.5/) fetches secrets directly from services like AWS Secrets Manager, creating corresponding Kubernetes Secrets. This enables a seamless integration with Kubernetes-native configurations.
 
-## Cost  optimization and sustainability
+## Cost optimization and sustainability
 
 Microservices architecture can enhance cost optimization and sustainability. By breaking an application into smaller parts, you can scale up only the services that need more resources, reducing cost and waste. This is particularly useful when dealing with variable traffic. Micorservices are independently developed. So developers can do smaller updates, and reduce the resources spent on e2e testing. While updating they will have to test only a subset of the features as opposed to monoliths.
 
