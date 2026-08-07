@@ -373,4 +373,19 @@ To implement each of this message types, AWS offers various managed services suc
 
 Microservices orchestratin refers to a centralized approach, where a central component, known as the orchestrator, is responsible for managing and coordinating the interactions between microservices. Orchestration workflows across multiple microservices can be challenging. Embedding orchestration code directly into services is discouraged, as it introduces tighter coupling and hinders replacing individual services.
 
-Step Functions provides a workflow engine to manage service orchestrating complexities, such as error handling and serialization.
+Step Functions provides a workflow engine to manage service orchestrating complexities, such as error handling and serialization. This allows you to scale and change applications quickly without adding coordination code. Step Functions is part of AWS serverless platform and supports Lambda functions, Amazon EC2, EKS, ECS, SageMaker AI, AWS Glue, and more.
+
+```mermaid
+graph TD;
+  Start --> OrderService;
+  OrderService --> InventoryService;
+  OrderService --> InvoiceService;
+  InvoiceService --> LogisticService;
+  OrderService --> CustomerNotificationService;
+  LogisticService --> CustomerNotificationService;
+  CustomerNotificationService --> End;
+```
+_An example of a microservices workflow with parallel and sequential steps invoked by AWS Step Functions_
+
+[Amazon Managed Workflows for Apache Airflow](https://aws.amazon.com/managed-workflows-for-apache-airflow/) (Amazon MWAA) is an alternative to Step Functions. You should use MWAA if you prioritiza open source and portability. AirFlow has a large and active open-source community that contributes new functionality and integrations regularly.
+
