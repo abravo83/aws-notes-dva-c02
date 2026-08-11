@@ -436,3 +436,15 @@ AWS X-Ray uses correlation IDs to track requests across these services. X-Ray wo
 
 ![Log analysys with Amazon OpenSearch Service](./aws-microservices-img/fig-13.png)
 
+### Other options for analysis
+
+For further log analysis, Amazon Redshift, a fully-managed data warehouse service, and **Quick**, a scalable bussiness intelligence service, offer effective solutions. QuickSight provides easy connectivity to various AWS data service such as Redshift, RDS, Aurora, EMR, DynamoDB, S3, and Kinesis, simplifying data access.
+
+CloudWatch Logs can stream log entries to Amazon Data Firehose, a service for delivering real-time streaming data. QuickSight then uses the data stored in Redshift for comprehensive analysis, reporting, and visualization.
+
+![Log analysis with Amazon Redshift and Quick](./aws-microservices-img/fig-14.png)
+
+Moreover, whe logs are stored in S3 buckets, the data can be loaded into services like Redshift or EMR, a cloud-based big data platform, allowing for thorough analysis of the stored log data.
+
+![Streamlining Log Analysis: From AWS services to QuickSight](./aws-microservices-img/fig-15.png)
+
