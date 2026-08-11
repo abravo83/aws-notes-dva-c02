@@ -448,3 +448,19 @@ Moreover, whe logs are stored in S3 buckets, the data can be loaded into service
 
 ![Streamlining Log Analysis: From AWS services to QuickSight](./aws-microservices-img/fig-15.png)
 
+### Managing chattiness in microservices communication
+
+_Chattiness_ refers to excessive communcation between microservices, which can cause inefficiency due to increased network latency. It's essential to manage chattiness effectively for a well functioning system.
+
+Some key tools for managing chattiness are REST APIs, HTTP APIs and gRPC APIs.
+
+Rest APIs offer a range of advanced features such as API keys, per-client throttling, request validation, AWS WAF integration, or private API endpoints.
+
+HTTPS APIs are designed with minimal features, and hence come at a lower price.
+
+For more details on this topic and a list of core features that are available in REST APIs and HTTP APIs, see [Choosing between REST APIs and HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html).
+
+Often, microsevices use REST over HTTP for communication due to its widepread use. But in high-volume situations, REST's overhead can cause performance issues. It's because the communication uses TCP handshake, which is required for every new request. In such cases, gRPC APIs is a better choices. gRPC reduces the latency as it allows multiple requests over a sing TCP connection. gRCP recuces the latency as it allows multiple requests over a single TCP connection. gRPC also supports bi-directional streaming, allowing clients and servers to send and recieve messages at the same time. This leads to more efficient communication, especially for large or real-time data transfers.
+
+If chattiness persists despite choosing the right API type, it may be necessary to reevaluate your microservice architecture. Consolidating services or revising your domain model cloud reduce chattiness and improve efficiency.
+
