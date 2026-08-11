@@ -412,3 +412,11 @@ For Amazon EKS, and often-preferred choice is Prometheus, and open-source platfo
 
 ![Container-based architecture with monitoring components](./aws-microservices-img/fig-10.png)
 
+### Centralizing logs
+
+Loggin is key to pinpoint and resolve issues. With microservices, you can release more requiently and experiment with new features. AWS provides services like Amazon S3, CloudWatch Logs, and Amazon OpenSearch Service to centralize log files. Amazon EC2 natively sends their log output there. For Amazon EKS, eithes Fluent Bit or Fluentd can be used to forwards logs to CLoydWatch for reporting using OpenSearch and Kibana. However, due to the smaller footprint and performance advantages, Fluent Bit is recommended over Fluentd.
+
+This figure illustrates how logs from various AWS services are directed to Amazon S3 and CloudWatch. These centralized logs can be further analyzed using Amazon OpenSearch Service, inclusive of Kibana for data visualization. Also, Amazon Athena can be employed for ad hoc queries against the logs stored in Amazon S3.
+
+![logging capabilities of AWS services](./aws-microservices-img/fig-11.png)
+
