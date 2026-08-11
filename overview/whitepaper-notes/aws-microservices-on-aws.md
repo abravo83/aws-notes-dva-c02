@@ -420,3 +420,12 @@ This figure illustrates how logs from various AWS services are directed to Amazo
 
 ![logging capabilities of AWS services](./aws-microservices-img/fig-11.png)
 
+### Distributed tracing
+
+Microsevices often work together to handle requests. 
+
+AWS X-Ray uses correlation IDs to track requests across these services. X-Ray works with EC2, ECS, Lambda, and Elastic Beanstalk.
+
+![AWS X-Ray service map](./aws-microservices-img/fig-12.png)
+
+[AWS Distro for OpenTelemetry](https://aws.amazon.com/otel/?otel-blogs.sort-by=item.additionalFields.createdDate&otel-blogs.sort-order=desc) is part of the OpenTelemetry project, and proveds open-source APIs and agents to gather distributed traces and metrics, improving your application monitoring. It sends metrics and traces to multiple AWS and partner monitoring solutions. By collecting metadata from your AWS resources, it aligns applications performance with the underlying infrastructure data, accelerating problem-solving. Plus, it's compatible with a variety of AWS services and can be used on-premises.
