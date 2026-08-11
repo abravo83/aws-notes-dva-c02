@@ -429,3 +429,10 @@ AWS X-Ray uses correlation IDs to track requests across these services. X-Ray wo
 ![AWS X-Ray service map](./aws-microservices-img/fig-12.png)
 
 [AWS Distro for OpenTelemetry](https://aws.amazon.com/otel/?otel-blogs.sort-by=item.additionalFields.createdDate&otel-blogs.sort-order=desc) is part of the OpenTelemetry project, and proveds open-source APIs and agents to gather distributed traces and metrics, improving your application monitoring. It sends metrics and traces to multiple AWS and partner monitoring solutions. By collecting metadata from your AWS resources, it aligns applications performance with the underlying infrastructure data, accelerating problem-solving. Plus, it's compatible with a variety of AWS services and can be used on-premises.
+
+### Log analysis on AWS
+
+**Amazon CloudWatch Logs Insights** allows for real-time log exploration, analysis, and visualization. For further log file analysis, Amazon OpenSearch Service, which includes Kibana, is a powerful tool. CloudWatch Logs can stream log entries to OpenSearch Service in real time. Kibana, seamlessly integrated with OpenSearch, visualizes this data and offers an intuitive search interface.
+
+![Log analysys with Amazon OpenSearch Service](./aws-microservices-img/fig-13.png)
+
