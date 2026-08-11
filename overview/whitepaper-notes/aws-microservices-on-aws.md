@@ -448,7 +448,7 @@ Moreover, whe logs are stored in S3 buckets, the data can be loaded into service
 
 ![Streamlining Log Analysis: From AWS services to QuickSight](./aws-microservices-img/fig-15.png)
 
-### Managing chattiness in microservices communication
+## Managing chattiness in microservices communication
 
 _Chattiness_ refers to excessive communcation between microservices, which can cause inefficiency due to increased network latency. It's essential to manage chattiness effectively for a well functioning system.
 
@@ -464,3 +464,8 @@ Often, microsevices use REST over HTTP for communication due to its widepread us
 
 If chattiness persists despite choosing the right API type, it may be necessary to reevaluate your microservice architecture. Consolidating services or revising your domain model cloud reduce chattiness and improve efficiency.
 
+## Using protocols and caching
+
+Microservices often use protocols like gRPC and REST for communication (see the previous section). gRPC uses HTTP/2 for transport, while REST tipically uses HTTP/1.1. gRPC employs protocol buffers for serialization, while REST tipically uses JSON or XML.
+
+To reduce latency and communication overhead, caching can be applied. Services like Amazon ElastiCache or the caching layer in API Gateway can help reduce the number of calls between microservices.
