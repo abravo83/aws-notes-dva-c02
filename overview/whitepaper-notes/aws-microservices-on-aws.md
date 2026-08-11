@@ -469,3 +469,10 @@ If chattiness persists despite choosing the right API type, it may be necessary 
 Microservices often use protocols like gRPC and REST for communication (see the previous section). gRPC uses HTTP/2 for transport, while REST tipically uses HTTP/1.1. gRPC employs protocol buffers for serialization, while REST tipically uses JSON or XML.
 
 To reduce latency and communication overhead, caching can be applied. Services like Amazon ElastiCache or the caching layer in API Gateway can help reduce the number of calls between microservices.
+
+## Auditing
+
+In a microservices architecture, it's crucial to have visibility into user actions across all services. AWS provides tools like AWS CloudTrail, which logs all API calls made in AWS, and AWS CloudWatch, which is used to capture application logs. This allows you yo track changes and analyze behavior across your microservices. Amazon EventBridge can react to system changes quickly, notifying the right people or even automatically starting workflows to resolve issues.
+
+![Auditing and remediation accross your microservices](./aws-microservices-img/fig-16.png)
+
