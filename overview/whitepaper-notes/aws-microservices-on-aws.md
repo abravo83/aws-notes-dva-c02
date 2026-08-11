@@ -476,3 +476,10 @@ In a microservices architecture, it's crucial to have visibility into user actio
 
 ![Auditing and remediation accross your microservices](./aws-microservices-img/fig-16.png)
 
+## Resource inventory and change management
+
+In an agile development environment with rapidly evolving infrastructure configurations, automated auditing and control are vital. **AWS Config Rules** provide a managed approach to monitoring these changes accross microservices. They enable the definition of specific security policies that automatically detect, track, and send alerts on policy violations.
+
+For instance, if an API Gateway configuration in a microservice is altered to accept inbound HTTP traffic instead of only HTTPS requests, a predefined AWS Config rule can detect this security violation. It logs the change for auditing and triggering an SNS notification, restoring the compliant state.
+
+![Detecting security violations with AWS Config](./aws-microservices-img/fig-17.png)
